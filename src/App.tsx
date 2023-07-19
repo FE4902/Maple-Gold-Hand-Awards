@@ -1,10 +1,13 @@
 import GlobalStyle from "./styles/GlobalStyle";
+import Header from "components/Header";
+import List from "components/List";
 
 function App() {
     return (
         <>
             <GlobalStyle />
-            <div></div>
+            <Header />
+            <List />
         </>
     );
 }
