@@ -1,13 +1,29 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import GlobalStyle from "./styles/GlobalStyle";
-import Header from "components/Header";
-import List from "components/List";
+
+import Layout from "./layout/Layout";
+
+import Cloth from "./pages/Cloth";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Layout />,
+        children: [
+            {
+                index: true,
+                element: <Cloth />,
+            },
+        ],
+    },
+]);
 
 function App() {
     return (
         <>
             <GlobalStyle />
-            <Header />
-            <List />
+            <RouterProvider router={router} />
         </>
     );
 }
