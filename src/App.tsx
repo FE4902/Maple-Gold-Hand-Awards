@@ -15,6 +15,10 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Cloth />,
             },
+            {
+                path: "/cloth",
+                element: <Cloth />,
+            },
         ],
     },
 ]);

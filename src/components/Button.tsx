@@ -6,6 +6,7 @@ import Variables from "styles/Variables";
 type ButtonType = {
     color?: "default" | "primary" | "gray";
     children: string;
+    onClick?: () => void;
 };
 
 const Button = (props: ButtonType) => {
