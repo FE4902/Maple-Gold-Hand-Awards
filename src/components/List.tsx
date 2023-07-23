@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import cloths from "../datas/cloth.json";
+import cloths from "../data/cloth.json";
 
 import Card from "./Card";
 
