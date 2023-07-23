@@ -3,17 +3,22 @@ import styled from "@emotion/styled";
 import Variables from "styles/Variables";
 
 type CardType = {
+    id: number;
+    categoryId: number;
     title: string;
     author: string;
     img: string;
 };
 
 const Card = (props: CardType) => {
-    const { title, author, img } = props;
+    const { id, categoryId, title, author, img } = props;
 
     return (
         <Container>
-            <Link>
+            <Link
+                href={`https://maplestory.nexon.com/Promotion/2021/20210805/AwardsPoll/Out/${categoryId}/${id}/asdf`}
+                target="_blank"
+            >
                 <Thumbnail>
                     <img src={img} />
                 </Thumbnail>

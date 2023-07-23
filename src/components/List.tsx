@@ -9,6 +9,8 @@ const List = () => {
             {cloths.map((v) => (
                 <Card
                     key={v.id}
+                    id={v.id}
+                    categoryId={v.categoryId}
                     title={v.title}
                     author={v.author}
                     img={v.img}
