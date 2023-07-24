@@ -1,12 +1,20 @@
+import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import cloths from "../data/cloth.json";
 
 import Card from "./Card";
 
-const List = () => {
+const List = ({ items }: any) => {
+    const [datas, setDatas] = useState();
+
+    useEffect(() => {
+        fetch(`/data/${items}.json`)
+            .then((res) => res.json())
+            .then((data) => setDatas(data));
+    }, [items]);
+
     return (
         <Container>
-            {cloths.map((v) => (
+            {datas?.map((v: any) => (
                 <Card
                     key={v.id}
                     id={v.id}

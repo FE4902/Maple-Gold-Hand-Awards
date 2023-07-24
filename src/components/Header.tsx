@@ -22,19 +22,20 @@ const Header = () => {
     return (
         <Container>
             <Menu>
-                {left.map((v) => (
+                {left.map((v, i) => (
                     <Button
+                        key={i}
                         children={v.children}
                         onClick={() => navigate(v.navigate)}
                     />
                 ))}
             </Menu>
             <Menu>
-                {right.map((v) => (
+                {right.map((v, i) => (
                     <Button
+                        key={i}
                         children={v.children}
                         onClick={() => navigate(v.navigate)}
-                        color={v.color}
                     />
                 ))}
             </Menu>

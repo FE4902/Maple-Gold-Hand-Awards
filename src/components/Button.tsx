@@ -10,9 +10,13 @@ type ButtonType = {
 };
 
 const Button = (props: ButtonType) => {
-    const { color = "default", children } = props;
+    const { color = "default", children, onClick } = props;
 
-    return <StyledButton color={color}>{children}</StyledButton>;
+    return (
+        <StyledButton color={color} onClick={onClick}>
+            {children}
+        </StyledButton>
+    );
 };
 
 export default Button;
