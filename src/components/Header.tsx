@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "@emotion/styled";
 import Variables from "styles/Variables";
 
@@ -17,8 +17,6 @@ const right = [
 ];
 
 const Header = () => {
-    const navigate = useNavigate();
-
     return (
         <Container>
             <Menu>

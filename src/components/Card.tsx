@@ -20,7 +20,7 @@ const Card = (props: CardType) => {
                 target="_blank"
             >
                 <Thumbnail>
-                    <img src={img} />
+                    <img src={img} loading="lazy" />
                 </Thumbnail>
                 <Description>
                     <Title>{title}</Title>
