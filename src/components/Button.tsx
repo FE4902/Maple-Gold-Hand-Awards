@@ -4,16 +4,18 @@ import styled from "@emotion/styled";
 import Variables from "styles/Variables";
 
 type ButtonType = {
+    as?: any;
+    to?: string;
     color?: "default" | "primary" | "gray";
     children: string;
     onClick?: () => void;
 };
 
 const Button = (props: ButtonType) => {
-    const { color = "default", children, onClick } = props;
+    const { as, to, color = "default", children, onClick } = props;
 
     return (
-        <StyledButton color={color} onClick={onClick}>
+        <StyledButton as={as} to={to} color={color} onClick={onClick}>
             {children}
         </StyledButton>
     );
@@ -28,6 +30,11 @@ const colorStyles = {
 
         &:hover {
             background-color: #f5f5f5;
+        }
+
+        &.active {
+            color: white;
+            background-color: ${Variables.colors.primary};
         }
     `,
     primary: css`

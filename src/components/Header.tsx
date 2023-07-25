@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import Variables from "styles/Variables";
 
@@ -25,8 +25,9 @@ const Header = () => {
                 {left.map((v, i) => (
                     <Button
                         key={i}
+                        as={NavLink}
+                        to={v.navigate}
                         children={v.children}
-                        onClick={() => navigate(v.navigate)}
                     />
                 ))}
             </Menu>
@@ -34,8 +35,9 @@ const Header = () => {
                 {right.map((v, i) => (
                     <Button
                         key={i}
+                        as={NavLink}
+                        to={v.navigate}
                         children={v.children}
-                        onClick={() => navigate(v.navigate)}
                     />
                 ))}
             </Menu>
