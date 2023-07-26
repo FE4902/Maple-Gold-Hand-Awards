@@ -28,7 +28,7 @@ const colorStyles = {
     default: css`
         color: black;
 
-        &:hover {
+        &:not(.active):hover {
             background-color: #f5f5f5;
         }
 
@@ -51,7 +51,7 @@ const StyledButton = styled.button<ButtonType>`
     padding: 8px 12px;
     border-radius: 4px;
 
-    &:hover {
+    &:not(.active):hover {
         opacity: 0.75;
     }
 

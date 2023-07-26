@@ -4,17 +4,26 @@ import styled from "@emotion/styled";
 import Card from "./Card";
 
 const List = ({ items }: any) => {
-    const [datas, setDatas] = useState();
+    const [listItems, setListItems] = useState([]);
+    const [likeItems, setLikeItems] = useState(
+        JSON.parse(localStorage.getItem("likeItems") || "[]")
+    );
 
     useEffect(() => {
         fetch(`/data/${items}.json`)
             .then((res) => res.json())
-            .then((data) => setDatas(data));
+            .then((data) => {
+                setListItems(data);
+            });
     }, [items]);
+
+    useEffect(() => {
+        localStorage.setItem("likeItems", JSON.stringify(likeItems));
+    }, [likeItems]);
 
     return (
         <Container>
-            {datas?.map((v: any) => (
+            {listItems?.map((v: any) => (
                 <Card
                     key={v.id}
                     id={v.id}
@@ -22,6 +31,8 @@ const List = ({ items }: any) => {
                     title={v.title}
                     author={v.author}
                     img={v.img}
+                    likeItems={likeItems}
+                    setLikeItems={setLikeItems}
                 />
             ))}
         </Container>
