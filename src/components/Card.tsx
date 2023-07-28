@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled from "@emotion/styled";
 import { FaHeart } from "react-icons/fa";
+import { LikeContext } from "../App";
 
 import Variables from "styles/Variables";
 
@@ -10,13 +11,11 @@ type CardType = {
     title: string;
     author: string;
     img: string;
-    likeItems: any;
-    setLikeItems: any;
 };
 
 const Card = (props: CardType) => {
-    const { id, categoryId, title, author, img, likeItems, setLikeItems } =
-        props;
+    const { id, categoryId, title, author, img } = props;
+    const { likeItems, setLikeItems } = useContext(LikeContext);
     const [like, setLike] = useState(likeItems.includes(id));
 
     const ToggleLike = () => {

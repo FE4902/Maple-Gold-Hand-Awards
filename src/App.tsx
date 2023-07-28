@@ -1,3 +1,4 @@
+import { createContext, useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import GlobalStyle from "./styles/GlobalStyle";
@@ -8,6 +9,7 @@ import Cloth from "./pages/Cloth";
 import Eye from "./pages/Eye";
 import Hair from "./pages/Hair";
 import Pet from "./pages/Pet";
+import Like from "./pages/Like";
 
 const router = createBrowserRouter([
     {
@@ -34,16 +36,30 @@ const router = createBrowserRouter([
                 path: "/pet",
                 element: <Pet />,
             },
+            {
+                path: "/like",
+                element: <Like />,
+            },
         ],
     },
 ]);
 
+export const LikeContext = createContext<any>([]);
+
 function App() {
+    const [likeItems, setLikeItems] = useState(
+        JSON.parse(localStorage.getItem("likeItems") || "[]")
+    );
+
+    useEffect(() => {
+        localStorage.setItem("likeItems", JSON.stringify(likeItems));
+    }, [likeItems]);
+
     return (
-        <>
+        <LikeContext.Provider value={{ likeItems, setLikeItems }}>
             <GlobalStyle />
             <RouterProvider router={router} />
-        </>
+        </LikeContext.Provider>
     );
 }
 
