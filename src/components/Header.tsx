@@ -12,8 +12,8 @@ const left = [
 ];
 
 const right = [
-    { children: "검색", navigate: "/pet", color: "gray" },
-    { children: "좋아요", navigate: "/pet", color: "primary" },
+    { children: "검색", navigate: "/search", color: "gray" },
+    { children: "좋아요", navigate: "/like", color: "primary" },
 ];
 
 const Header = () => {
@@ -36,6 +36,7 @@ const Header = () => {
                         as={NavLink}
                         to={v.navigate}
                         children={v.children}
+                        color={v.color}
                     />
                 ))}
             </Menu>

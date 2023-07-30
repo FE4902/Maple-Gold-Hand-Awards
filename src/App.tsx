@@ -9,6 +9,7 @@ import Cloth from "./pages/Cloth";
 import Eye from "./pages/Eye";
 import Hair from "./pages/Hair";
 import Pet from "./pages/Pet";
+import Search from "./pages/Search";
 import Like from "./pages/Like";
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: "/pet",
                 element: <Pet />,
+            },
+            {
+                path: "/search",
+                element: <Search />,
             },
             {
                 path: "/like",
