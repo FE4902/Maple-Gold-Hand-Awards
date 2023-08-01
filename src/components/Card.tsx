@@ -13,7 +13,7 @@ type CardType = {
     img: string;
 };
 
-const Card = (props: CardType) => {
+const Card = (props: CardType): JSX.Element => {
     const { id, categoryId, title, author, img } = props;
     const { likeItems, setLikeItems } = useContext(LikeContext);
     const [like, setLike] = useState(likeItems.includes(id));

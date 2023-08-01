@@ -5,28 +5,36 @@ import styled from "@emotion/styled";
 import Variables from "styles/Variables";
 import { useFetchData } from "hooks/useFetchData";
 
+type CardType = {
+    id: number;
+    categoryId: number;
+    title: string;
+    author: string;
+    img: string;
+};
+
+export type CardListProps = {
+    listItems?: CardType[] | undefined;
+};
+
 function Search() {
     const [searchValue, setSearchValue] = useState<string>();
-    const [searchResult, setSearchResult] = useState<any>();
+    const [searchResult, setSearchResult] = useState<CardType[]>([]);
     const all = useFetchData();
 
-    const handleInput = (e: any) => {
-        setSearchValue(e.target.value);
+    const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        setSearchValue(e.currentTarget.value);
     };
-
-    useEffect(() => {
-        console.log(1);
-    }, [all]);
 
     useEffect(() => {
         setSearchResult(
             all.filter(
-                (v: any) =>
-                    v.title.includes(searchValue) ||
-                    v.author.includes(searchValue)
+                (v: CardType) =>
+                    v.title.includes(searchValue || "") ||
+                    v.author.includes(searchValue || "")
             )
         );
-    }, [searchValue]);
+    }, [all, searchValue]);
 
     return (
         <>

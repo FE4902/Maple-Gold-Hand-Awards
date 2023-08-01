@@ -4,14 +4,14 @@ import styled from "@emotion/styled";
 import Variables from "styles/Variables";
 
 type ButtonType = {
-    as?: any;
+    as?: React.ElementType;
     to?: string;
     color?: "default" | "primary" | "gray";
     children: string;
     onClick?: () => void;
 };
 
-const Button = (props: ButtonType) => {
+const Button = (props: ButtonType): JSX.Element => {
     const { as, to, color = "default", children, onClick } = props;
 
     return (

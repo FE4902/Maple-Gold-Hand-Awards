@@ -3,7 +3,7 @@ import List from "components/List";
 import { LikeContext } from "../App";
 
 function Like() {
-    const [listItems, setListItems] = useState<any>();
+    const [listItems, setListItems] = useState<string[]>();
     const { likeItems } = useContext(LikeContext);
 
     useEffect(() => {
@@ -14,7 +14,9 @@ function Like() {
 
         Promise.all(listsPromise).then((datas) => {
             setListItems(
-                [].concat(...datas).filter((v: any) => likeItems.includes(v.id))
+                []
+                    .concat(...datas)
+                    .filter((v: string[]) => likeItems.includes(v.id))
             );
         });
     }, []);

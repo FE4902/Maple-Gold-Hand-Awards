@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const useFetchSingleData = (param: string) => {
-    const [listItems, setListItems] = useState<any>();
+    const [listItems, setListItems] = useState<string>();
 
     useEffect(() => {
         fetch(`/data/${param}.json`)

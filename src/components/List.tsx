@@ -2,10 +2,22 @@ import styled from "@emotion/styled";
 
 import Card from "./Card";
 
-const List = ({ listItems }: any) => {
+type CardType = {
+    id: number;
+    categoryId: number;
+    title: string;
+    author: string;
+    img: string;
+};
+
+export type CardListProps = {
+    listItems?: CardType[] | undefined;
+};
+
+const List = ({ listItems }: CardListProps): JSX.Element => {
     return (
         <Container>
-            {listItems?.map((v: any) => (
+            {listItems?.map((v: CardType) => (
                 <Card
                     key={v.id}
                     id={v.id}

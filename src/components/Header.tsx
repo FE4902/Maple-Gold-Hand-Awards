@@ -16,7 +16,7 @@ const right = [
     { children: "좋아요", navigate: "/like", color: "primary" },
 ];
 
-const Header = () => {
+const Header = (): JSX.Element => {
     return (
         <Container>
             <Menu>
