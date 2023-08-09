@@ -4,18 +4,7 @@ import List from "components/List";
 import styled from "@emotion/styled";
 import Variables from "styles/Variables";
 import { useFetchData } from "hooks/useFetchData";
-
-type CardType = {
-    id: number;
-    categoryId: number;
-    title: string;
-    author: string;
-    img: string;
-};
-
-export type CardListProps = {
-    listItems?: CardType[] | undefined;
-};
+import { CardType } from "types/types";
 
 function Search() {
     const [searchValue, setSearchValue] = useState<string>();

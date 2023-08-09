@@ -1,9 +1,10 @@
 import { useEffect, useContext, useState } from "react";
 import List from "components/List";
 import { LikeContext } from "../App";
+import { CardType } from "types/types";
 
 function Like() {
-    const [listItems, setListItems] = useState<string[]>();
+    const [listItems, setListItems] = useState<CardType[]>();
     const { likeItems } = useContext(LikeContext);
 
     useEffect(() => {
@@ -16,7 +17,7 @@ function Like() {
             setListItems(
                 []
                     .concat(...datas)
-                    .filter((v: string[]) => likeItems.includes(v.id))
+                    .filter((v: CardType) => likeItems.includes(v.id))
             );
         });
     }, []);

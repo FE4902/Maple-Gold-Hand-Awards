@@ -3,15 +3,16 @@ import styled from "@emotion/styled";
 import Variables from "styles/Variables";
 
 import Button from "./Button";
+import { NavButtonType } from "types/types";
 
-const left = [
+const left: NavButtonType[] = [
     { children: "의상", navigate: "/cloth" },
     { children: "성형", navigate: "/eye" },
     { children: "헤어", navigate: "/hair" },
     { children: "펫", navigate: "/pet" },
 ];
 
-const right = [
+const right: NavButtonType[] = [
     { children: "검색", navigate: "/search", color: "gray" },
     { children: "좋아요", navigate: "/like", color: "primary" },
 ];

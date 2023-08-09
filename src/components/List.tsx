@@ -1,18 +1,7 @@
 import styled from "@emotion/styled";
 
 import Card from "./Card";
-
-type CardType = {
-    id: number;
-    categoryId: number;
-    title: string;
-    author: string;
-    img: string;
-};
-
-export type CardListProps = {
-    listItems?: CardType[] | undefined;
-};
+import { CardType, CardListProps } from "types/types";
 
 const List = ({ listItems }: CardListProps): JSX.Element => {
     return (

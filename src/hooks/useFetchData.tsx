@@ -1,16 +1,5 @@
 import { useEffect, useState } from "react";
-
-type CardType = {
-    id: number;
-    categoryId: number;
-    title: string;
-    author: string;
-    img: string;
-};
-
-type CardListProps = {
-    listItems?: CardType[] | undefined;
-};
+import { CardType } from "types/types";
 
 export const useFetchData = () => {
     const [listItems, setListItems] = useState<CardType[]>([]);

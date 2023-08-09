@@ -4,14 +4,7 @@ import { FaHeart } from "react-icons/fa";
 import { LikeContext } from "../App";
 
 import Variables from "styles/Variables";
-
-type CardType = {
-    id: number;
-    categoryId: number;
-    title: string;
-    author: string;
-    img: string;
-};
+import { CardType } from "types/types";
 
 const Card = (props: CardType): JSX.Element => {
     const { id, categoryId, title, author, img } = props;

@@ -2,14 +2,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 import Variables from "styles/Variables";
-
-type ButtonType = {
-    as?: React.ElementType;
-    to?: string;
-    color?: "default" | "primary" | "gray";
-    children: string;
-    onClick?: () => void;
-};
+import { ButtonType } from "types/types";
 
 const Button = (props: ButtonType): JSX.Element => {
     const { as, to, color = "default", children, onClick } = props;

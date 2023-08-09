@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { CardType } from "types/types";
 
-export const useFetchSingleData = (param: string) => {
-    const [listItems, setListItems] = useState<string>();
+export const useFetchSingleData = (param: string): CardType[] => {
+    const [listItems, setListItems] = useState<CardType[]>([]);
 
     useEffect(() => {
         fetch(`/data/${param}.json`)
