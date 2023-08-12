@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 import Card from "./Card";
 import { CardType, CardListProps } from "types/types";
+import { breakpoints, mq } from "styles/MediaQueries";
 
 const List = ({ listItems }: CardListProps): JSX.Element => {
     return (
@@ -28,4 +29,14 @@ const Container = styled.ul`
     grid-template-columns: repeat(6, 1fr);
     gap: 24px;
     padding: 16px;
+
+    ${mq[0]} {
+        gap: 16px;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    ${mq[1]} {
+        gap: 12px;
+        grid-template-columns: repeat(2, 1fr);
+    }
 `;
