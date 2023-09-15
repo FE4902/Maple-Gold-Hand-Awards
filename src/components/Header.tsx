@@ -6,7 +6,7 @@ import Button from "./Button";
 import { NavButtonType } from "types/types";
 
 const left: NavButtonType[] = [
-    { children: "의상", navigate: "/cloth" },
+    { children: "의상", navigate: "/" },
     { children: "성형", navigate: "/eye" },
     { children: "헤어", navigate: "/hair" },
     { children: "펫", navigate: "/pet" },

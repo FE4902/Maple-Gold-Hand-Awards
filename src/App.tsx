@@ -22,10 +22,6 @@ const router = createBrowserRouter([
                 element: <Cloth />,
             },
             {
-                path: "/cloth",
-                element: <Cloth />,
-            },
-            {
                 path: "/eye",
                 element: <Eye />,
             },
