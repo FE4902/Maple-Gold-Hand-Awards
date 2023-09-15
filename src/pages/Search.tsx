@@ -36,7 +36,7 @@ function Search() {
             {searchValue ? (
                 <List listItems={searchResult} />
             ) : (
-                <span>검색 결과가 없습니다.</span>
+                <Empty>검색 결과가 없습니다.</Empty>
             )}
         </>
     );
@@ -59,4 +59,11 @@ const SearchBar = styled.input`
         box-shadow: 0 0 0 1px ${Variables.colors.primary};
         outline: none;
     }
+`;
+
+const Empty = styled.p`
+    text-align: center;
+    padding: 32px 0;
+    font-size: 28px;
+    font-weight: 600;
 `;
