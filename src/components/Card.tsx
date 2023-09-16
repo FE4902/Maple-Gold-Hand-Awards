@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import styled from "@emotion/styled";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa6";
 import { LikeContext } from "../App";
 
-import Variables from "styles/Variables";
 import { CardType } from "types/types";
+import Variables from "styles/Variables";
 
 const Card = (props: CardType): JSX.Element => {
     const { id, categoryId, title, author, img } = props;
@@ -47,12 +47,12 @@ export default Card;
 const Container = styled.li`
     position: relative;
     border: 1px solid ${Variables.colors.gray};
-    border-radius: 8px;
+    border-radius: ${Variables.radius.lg};
     overflow: hidden;
     transition: 0.3s;
 
     &:hover {
-        transform: translateY(-4px);
+        transform: translateY(-0.25rem);
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.05);
     }
 `;
@@ -66,33 +66,32 @@ const Thumbnail = styled.figure`
 `;
 
 const Description = styled.div`
-    padding: 8px;
-    min-height: 76px;
+    min-height: 4.75rem;
+    padding: 0.5rem;
 `;
 
 const Title = styled.h4`
-    padding-bottom: 4px;
-    font-weight: 600;
+    padding-bottom: 0.25rem;
+    font-weight: ${Variables.fontWeight.semiBold};
 `;
 
 const Author = styled.p`
-    font-size: 14px;
+    font-size: ${Variables.fontSize.sm};
     opacity: 0.75;
 `;
 
 const Like = styled.button`
     position: absolute;
-    right: 12px;
-    top: 12px;
+    right: 0.75rem;
+    top: 0.75rem;
     display: grid;
     place-content: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    border-radius: ${Variables.radius.circle};
     border: 1px solid ${Variables.colors.gray};
     color: ${Variables.colors.gray};
-    background-color: white;
-    font-size: 14px;
+    background-color: ${Variables.colors.white};
     transition: 0.3s;
 
     &:is(:hover, .active) {

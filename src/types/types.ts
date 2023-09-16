@@ -14,13 +14,13 @@ export type CardListProps = {
 export type ButtonType = {
     as?: React.ElementType;
     to?: string;
-    color?: "default" | "primary" | "gray";
+    color?: "default" | "primary" | "gray" | "dark";
     children: string;
     onClick?: () => void;
 };
 
-export type NavButtonType = {
+export type NavButtonType = {                                                                                                                                                                                                   
     navigate?: string;
-    color?: "default" | "primary" | "gray";
+    color?: "default" | "primary" | "gray" | "dark";
     children: string;
 };

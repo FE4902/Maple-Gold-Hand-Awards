@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom";
 import styled from "@emotion/styled";
+
+import { NavButtonType } from "types/types";
+
 import Variables from "styles/Variables";
 
 import Button from "./Button";
-import { NavButtonType } from "types/types";
 
 const left: NavButtonType[] = [
     { children: "의상", navigate: "/" },
@@ -14,10 +16,11 @@ const left: NavButtonType[] = [
 
 const right: NavButtonType[] = [
     { children: "검색", navigate: "/search", color: "gray" },
-    { children: "좋아요", navigate: "/like", color: "primary" },
+    { children: "좋아요", navigate: "/like", color: "dark" },
 ];
 
 const Header = (): JSX.Element => {
+
     return (
         <Container>
             <Menu>
@@ -56,13 +59,13 @@ const Container = styled.header`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 64px;
-    padding: 0 16px;
+    height: 4rem;
+    padding: 0 1rem;
     border-bottom: 1px solid ${Variables.colors.gray};
-    background-color: white;
+    background-color: ${Variables.colors.white};
 `;
 
 const Menu = styled.ul`
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
 `;

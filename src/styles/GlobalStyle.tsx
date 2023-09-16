@@ -1,4 +1,5 @@
 import { css, Global } from "@emotion/react";
+import Variables from "./Variables";
 
 const style = css`
     * {
@@ -50,6 +51,10 @@ const style = css`
     ul,
     ol {
         list-style-type: none;
+    }
+    html {
+        font-size: ${Variables.fontSize.md};
+        overflow-y: scroll;
     }
     body {
         font-family: "Pretendard Variable", Pretendard, -apple-system,

@@ -1,8 +1,9 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-import Variables from "styles/Variables";
 import { ButtonType } from "types/types";
+
+import Variables from "styles/Variables";
 
 const Button = (props: ButtonType): JSX.Element => {
     const { as, to, color = "default", children, onClick } = props;
@@ -19,30 +20,49 @@ export default Button;
 // STYLE
 const colorStyles = {
     default: css`
-        color: black;
+        color: ${Variables.colors.dark};
 
         &:not(.active):hover {
-            background-color: #f5f5f5;
+            background-color: ${Variables.colors.light};
         }
 
         &.active {
-            color: white;
+            color: ${Variables.colors.light};
             background-color: ${Variables.colors.primary};
         }
     `,
     primary: css`
-        color: white;
+        color: ${Variables.colors.light};
         background-color: ${Variables.colors.primary};
+
+        &.active {
+            color: ${Variables.colors.light};
+            background-color: ${Variables.colors.primary};
+        }
     `,
     gray: css`
-        color: black;
+        color: ${Variables.colors.dark};
         background-color: ${Variables.colors.gray};
+
+        &.active {
+            color: ${Variables.colors.light};
+            background-color: ${Variables.colors.primary};
+        }
     `,
+    dark: css`
+        color: ${Variables.colors.light};
+        background-color: ${Variables.colors.dark};
+
+        &.active {
+            color: ${Variables.colors.light};
+            background-color: ${Variables.colors.primary};
+        }
+    `
 };
 
 const StyledButton = styled.button<ButtonType>`
-    padding: 8px 12px;
-    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    border-radius: ${Variables.radius.md};
 
     &:not(.active):hover {
         opacity: 0.75;

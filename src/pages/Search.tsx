@@ -26,14 +26,14 @@ function Search() {
     }, [all, searchValue]);
 
     return (
-        <>
+        <>  
             <SearchBar
                 type="search"
                 placeholder="검색어를 입력해주세요."
                 autoFocus
                 onInput={handleInput}
             ></SearchBar>
-            {searchValue ? (
+            {searchValue && searchResult.length > 0 ? (
                 <List listItems={searchResult} />
             ) : (
                 <Empty>검색 결과가 없습니다.</Empty>
@@ -46,16 +46,17 @@ export default Search;
 
 const SearchBar = styled.input`
     display: flex;
-    max-width: calc(100% - 32px);
-    width: 640px;
-    margin: 32px auto 16px;
-    padding: 12px 16px;
+    max-width: 640px;
+    width: calc(100% - 2rem);
+    height: 3.125rem;
+    margin: 2rem auto 1rem;
+    padding: 0.75rem 1rem;
     border: 1px solid ${Variables.colors.gray};
-    font-size: 28px;
-    border-radius: 8px;
+    font-size: ${Variables.fontSize.lg};
+    border-radius: ${Variables.radius.lg};
 
     &:is(:hover, :focus) {
-        border: 1px solid ${Variables.colors.primary};
+        border-color: ${Variables.colors.primary};
         box-shadow: 0 0 0 1px ${Variables.colors.primary};
         outline: none;
     }
@@ -63,7 +64,7 @@ const SearchBar = styled.input`
 
 const Empty = styled.p`
     text-align: center;
-    padding: 32px 0;
-    font-size: 28px;
-    font-weight: 600;
+    padding: 2rem 0;
+    font-size: ${Variables.fontSize.lg};
+    font-weight: ${Variables.fontWeight.semiBold};
 `;
