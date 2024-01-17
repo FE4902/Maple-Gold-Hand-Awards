@@ -11,8 +11,12 @@ function Search() {
     const [searchResult, setSearchResult] = useState<CardType[]>([]);
     const all = useFetchData();
 
-    const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        setSearchValue(e.currentTarget.value);
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const debounce = setTimeout(() => {
+            setSearchValue(e.target.value);
+        }, 200);
+
+        return () => clearTimeout(debounce);
     };
 
     useEffect(() => {
@@ -26,12 +30,12 @@ function Search() {
     }, [all, searchValue]);
 
     return (
-        <>  
+        <>
             <SearchBar
                 type="search"
                 placeholder="검색어를 입력해주세요."
                 autoFocus
-                onInput={handleInput}
+                onChange={handleInput}
             ></SearchBar>
             {searchValue && searchResult.length > 0 ? (
                 <List listItems={searchResult} />
