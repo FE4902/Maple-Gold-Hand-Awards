@@ -1,8 +1,9 @@
+import useFetchData from "hooks/useFetchData";
+
 import List from "components/List";
-import { useFetchSingleData } from "hooks/useFetchSingleData";
 
 function Cloth() {
-    const cloth = useFetchSingleData("cloth");
+    const cloth = useFetchData("cloth");
 
     return <List listItems={cloth} />;
 }

@@ -1,23 +1,40 @@
+import { useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 
 import { CardType, CardListProps } from "types/types";
 import { mq } from "styles/MediaQueries";
 
-import Card from "./Card";
+import Card from "components/Card";
 
 const List = ({ listItems }: CardListProps): JSX.Element => {
+    const ref = useRef<HTMLDivElement>(null);
+
+    const option = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+    };
+
+    const callback = (entries: IntersectionObserverEntry[]) => {
+        if (entries[0].isIntersecting) {
+            console.log("Intersecting");
+        }
+    };
+
+    const observer = new IntersectionObserver(callback, option);
+
+    useEffect(() => {
+        observer.observe(ref.current!);
+    }, []);
+
     return (
         <Container>
-            {listItems?.map((v: CardType) => (
-                <Card
-                    key={v.id}
-                    id={v.id}
-                    categoryId={v.categoryId}
-                    title={v.title}
-                    author={v.author}
-                    img={v.img}
-                />
-            ))}
+            <>
+                {listItems?.map((listItem: CardType) => (
+                    <Card key={listItem.id} {...listItem} />
+                ))}
+                <Observer ref={ref} />
+            </>
         </Container>
     );
 };
@@ -40,4 +57,8 @@ const Container = styled.ul`
         grid-template-columns: repeat(2, 1fr);
         gap: 0.75rem;
     }
+`;
+
+const Observer = styled.div`
+    height: 2.5rem;
 `;

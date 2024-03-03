@@ -1,4 +1,5 @@
 import { css, Global } from "@emotion/react";
+
 import Variables from "./Variables";
 
 const style = css`

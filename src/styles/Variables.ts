@@ -14,13 +14,13 @@ const Variables = {
     },
     fontWeight: {
         normal: 400,
-        semiBold: 600
+        semiBold: 600,
     },
     radius: {
-        md: '4px',
-        lg: '8px',
-        circle: '50%'
-    }
+        md: "4px",
+        lg: "8px",
+        circle: "50%",
+    },
 };
 
 export default Variables;

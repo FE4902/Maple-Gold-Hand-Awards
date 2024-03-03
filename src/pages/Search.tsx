@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import List from "components/List";
-
 import styled from "@emotion/styled";
-import Variables from "styles/Variables";
-import { useFetchData } from "hooks/useFetchData";
+
+import useFetchData from "hooks/useFetchData";
 import { CardType } from "types/types";
+import Variables from "styles/Variables";
+
+import List from "components/List";
 
 function Search() {
     const [searchValue, setSearchValue] = useState<string>();

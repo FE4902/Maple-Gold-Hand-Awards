@@ -1,8 +1,9 @@
+import useFetchData from "hooks/useFetchData";
+
 import List from "components/List";
-import { useFetchSingleData } from "hooks/useFetchSingleData";
 
 function Hair() {
-    const hair = useFetchSingleData("hair");
+    const hair = useFetchData("hair");
 
     return <List listItems={hair} />;
 }

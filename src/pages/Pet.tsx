@@ -1,8 +1,9 @@
+import useFetchData from "hooks/useFetchData";
+
 import List from "components/List";
-import { useFetchSingleData } from "hooks/useFetchSingleData";
 
 function Pet() {
-    const pet = useFetchSingleData("pet");
+    const pet = useFetchData("pet");
 
     return <List listItems={pet} />;
 }

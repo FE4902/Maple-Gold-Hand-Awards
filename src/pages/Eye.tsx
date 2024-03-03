@@ -1,8 +1,9 @@
+import useFetchData from "hooks/useFetchData";
+
 import List from "components/List";
-import { useFetchSingleData } from "hooks/useFetchSingleData";
 
 function Eye() {
-    const eye = useFetchSingleData("eye");
+    const eye = useFetchData("eye");
 
     return <List listItems={eye} />;
 }

@@ -2,7 +2,6 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 import { ButtonType } from "types/types";
-
 import Variables from "styles/Variables";
 
 const Button = (props: ButtonType): JSX.Element => {
@@ -57,7 +56,7 @@ const colorStyles = {
             color: ${Variables.colors.light};
             background-color: ${Variables.colors.primary};
         }
-    `
+    `,
 };
 
 const StyledButton = styled.button<ButtonType>`

@@ -2,10 +2,9 @@ import { NavLink } from "react-router-dom";
 import styled from "@emotion/styled";
 
 import { NavButtonType } from "types/types";
-
 import Variables from "styles/Variables";
 
-import Button from "./Button";
+import Button from "components/Button";
 
 const left: NavButtonType[] = [
     { children: "의상", navigate: "/" },
@@ -20,27 +19,26 @@ const right: NavButtonType[] = [
 ];
 
 const Header = (): JSX.Element => {
-
     return (
         <Container>
             <Menu>
-                {left.map((v, i) => (
+                {left.map((value, index) => (
                     <Button
-                        key={i}
+                        key={index}
                         as={NavLink}
-                        to={v.navigate}
-                        children={v.children}
+                        to={value.navigate}
+                        children={value.children}
                     />
                 ))}
             </Menu>
             <Menu>
-                {right.map((v, i) => (
+                {right.map((value, index) => (
                     <Button
-                        key={i}
+                        key={index}
                         as={NavLink}
-                        to={v.navigate}
-                        children={v.children}
-                        color={v.color}
+                        to={value.navigate}
+                        children={value.children}
+                        color={value.color}
                     />
                 ))}
             </Menu>
