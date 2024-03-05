@@ -1,41 +1,23 @@
-import { useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 
+import useInfiniteScroll from "hooks/useInfiniteScroll";
 import { CardType, CardListProps } from "types/types";
 import { mq } from "styles/MediaQueries";
 
 import Card from "components/Card";
 
-const List = ({ listItems }: CardListProps): JSX.Element => {
-    const ref = useRef<HTMLDivElement>(null);
-
-    const option = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.1,
-    };
-
-    const callback = (entries: IntersectionObserverEntry[]) => {
-        if (entries[0].isIntersecting) {
-            console.log("Intersecting");
-        }
-    };
-
-    const observer = new IntersectionObserver(callback, option);
-
-    useEffect(() => {
-        observer.observe(ref.current!);
-    }, []);
-
+const List = ({ listItems }: any): JSX.Element => {
+    const { items, observeRef } = useInfiniteScroll(listItems);
+    
     return (
-        <Container>
-            <>
-                {listItems?.map((listItem: CardType) => (
-                    <Card key={listItem.id} {...listItem} />
+        <>
+            <Container>
+                {items?.map((item: CardType) => (
+                    <Card key={item.id} {...item} />
                 ))}
-                <Observer ref={ref} />
-            </>
-        </Container>
+            </Container>
+            <Observer ref={observeRef} />
+        </>
     );
 };
 
